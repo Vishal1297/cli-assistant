@@ -16,6 +16,8 @@ if __name__ == '__main__':
     print("******* Welcome To Tools Opener *******")
     print("*" * 39)
     print()
+    print("****** Developed By Vishal Yadav ******")
+    print()
     print("**** For Windows And Linux OS Only ****")
     print("\n")
     print("To exit app press exit or quit or close\n")
