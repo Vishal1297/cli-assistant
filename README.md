@@ -7,7 +7,23 @@ A Python CLI Assistant For Opening Windows And Linux Applications.
 [![GitHub issues](https://img.shields.io/github/issues/Vishal1297/cli-assistant?style=plastic)](https://github.com/Vishal1297/cli-assistant/issues)
 [![GitHub License](https://img.shields.io/github/license/Vishal1297/cli-assistant)](https://github.com/Vishal1297/cli-assistant/blob/master/LICENSE)
 
-**Requirements**
+### Supported Applications :
+
+**Windows :**
+
+```
+  Chrome Browser, Firefox Browser, Notepad, Visual Studio Code, Discord, Gimp,
+  VLC Media Player, Windows Media Player, Calculator, Calender, Blender.
+```
+
+**Linux :**
+
+```
+Chrome Browser, Firefox Browser, Gedit, Visual Studio Code, VLC Media Player,
+Calculator, Calendar, Discord, Chess, To Do, Gimp, Blender.
+```
+
+**Requirements :**
 
 - **python3.x**
 - **pip**
