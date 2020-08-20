@@ -19,8 +19,8 @@ A Python CLI Assistant For Opening Windows And Linux Applications.
 **Linux :**
 
 ```
-Chrome Browser, Firefox Browser, Gedit, Visual Studio Code, VLC Media Player,
-Calculator, Calendar, Discord, Chess, To Do, Gimp, Blender.
+  Chrome Browser, Firefox Browser, Gedit, Visual Studio Code, VLC Media Player,
+  Calculator, Calendar, Discord, Chess, To Do, Gimp, Blender.
 ```
 
 **Requirements :**
