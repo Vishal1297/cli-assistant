@@ -11,6 +11,10 @@ def speak(text):
 
 
 if __name__ == '__main__':
+
+    # Check OS Type
+    sys_type = platform.system()
+
     print()
     print("*" * 39)
     print("******* Welcome To Tools Opener *******")
@@ -19,10 +23,34 @@ if __name__ == '__main__':
     print("****** Developed By Vishal Yadav ******")
     print()
     print("**** For Windows And Linux OS Only ****")
-    print("\n\n")
-    print("To exit app press exit or quit or close\n")
     print()
-    print("To exit the opened tool press Ctrl + C \n")
+
+    # Validate For Windows And Linux Only
+    if sys_type != "Linux" and sys_type != "Windows":
+        print("****** This System Not Supported ******")
+        sys.exit("Closing Tools Opener")
+
+    print("\n\n\t\t Menu")
+    print("\n** Choose Any One Of The Following **\n")
+    print()
+    if sys_type == "Windows":
+        print("Chrome Browser || Firefox Browser\n")
+        print("Calculator || Visual Studio Code\n")
+        print("Gimp || Notepad || Calender || Discord\n")
+        print("VLC Media Player || Windows Media Player\n")
+        
+    elif sys_type == "Linux":
+        print("Chrome Browser || Firefox Browser\n")
+        print("Gimp || Blender || Gedit || Calendar\n")
+        print("Discord || Chess || To-Do || Calculator\n")
+        print("Visual Studio Code || VLC Media Player\n")
+    
+    print("\n")
+    print("To exit app type exit or quit or close\n")
+    print()
+    print("To clear the console type clear or cls\n")
+    print()
+    print("To exit the opened tool press Ctrl + C\n")
 
     engine = pyttsx3.init()
     volume = engine.getProperty('volume')
@@ -32,29 +60,13 @@ if __name__ == '__main__':
     # Welcome Message
     speak("Welcome To Tools Opener")
 
-    # Supported Apps(14) ::
-
-    # Windows :: "Chrome Browser", "Firefox Browser", "Notepad Text Editor", "Visual Studio Code", "VLC Media Player",
-    #            "Windows Media Player", "Calculator", "Calender", "Discord", "Gimp", "Blender"
-
-    # Linux :: "Chrome Browser", "Firefox Browser", "Gedit Text Editor", "Visual Studio Code", "VLC Media Player",
-    #          "Calculator", "Calendar", "Discord", "Chess", "To Do", "Gimp", "Blender"
-
-    # Check OS Type
-    sys_type = platform.system()
-
-    # Validate For Windows And Linux Only
-    if sys_type != "Linux" and sys_type != "Windows":
-        print("****** This System Not Supported ******")
-        sys.exit("Closing Tools Opener")
-
     while True:
 
         # Ask For Query
         speak("What can i do for you")
 
         # Taking Query From User
-        query = input("\nWhat can i do for you ? ").lower()
+        query = input("\nWhat can i do for you ? ").strip().lower()
 
         # Printing User Query
         print("\nYour Query :: ", query)
@@ -62,7 +74,12 @@ if __name__ == '__main__':
         if "don't" in query or "do not" in query or "not" in query or "never" in query or "not do" in query \
                 or "must not" in query or "nope" in query:
             continue
-        if ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("chrome" in query
+        if "clear" in query or "cls" in query:
+            if sys_type == "Windows":
+                os.system("cls")
+            elif sys_type == "Linux":
+                os.system("clear")
+        elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("chrome" in query
         or "browser" in query):
             speak("Opening Chrome Browser")
             if sys_type == "Windows":
@@ -149,8 +166,7 @@ if __name__ == '__main__':
                 if os.system("gimp") != 0:
                     speak("Gimp Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("visual studio code"
-        in query or "code" in query or "code" in query or "editor" in query) and not ("video" in query or "image"
-        in query or "audio" in query or "media" in query or "gedit" in query):
+        in query or "code" in query or "code" in query or "editor" in query):
             speak("Opening Visual Studio Code")
             if os.system("code") != 0:
                 speak("Visual Studio Code Not Found")
@@ -158,7 +174,7 @@ if __name__ == '__main__':
             speak("Opening Blender")
             if os.system("blender") != 0:
                 speak("Blender Not Found")
-        elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("gedit" in query or "editor" in query) and not ("video" in query or "image" in query or "audio" in query or "media" in query):
+        elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("gedit" in query or "editor" in query):
             speak("Opening Gedit")
             if sys_type == "Linux":
                 if os.system("gedit") != 0:
@@ -166,7 +182,7 @@ if __name__ == '__main__':
             else:
                 print("\n**** This Feature Is Not Supported ****\n")
                 speak("This Feature Is Not Supported")
-        elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("notepad" in query or "editor" in query) and not ("video" in query or "image" in query or "audio" in query or "media" in query):
+        elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("notepad" in query or "note pad" in query or "editor" in query):
             speak("Opening Notepad")
             if sys_type == "Windows":
                 if os.system("notepad") != 0:
