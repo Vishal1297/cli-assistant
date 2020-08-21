@@ -164,7 +164,7 @@ if __name__ == '__main__':
                 if os.system("gimp") != 0:
                     speak("Gimp Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("visual studio code"
-        in query or "code" in query or "code" in query or "editor" in query):
+        in query or "code" in query or "visual code" in query or "editor" in query):
             speak("Opening Visual Studio Code")
             if os.system("code") != 0:
                 speak("Visual Studio Code Not Found")
