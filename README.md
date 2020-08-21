@@ -35,8 +35,16 @@ A Python CLI Assistant For Opening Windows And Linux Applications.
 - **[platform](https://docs.python.org/3/library/platform.html)**
 - **[pyttsx3](https://pyttsx3.readthedocs.io/en/latest/engine.html)**
 
-#### To Run :
+**To Run :**
 
 ```
   python assistant.py
+  
+  or
+  
+  python3 assistant.py
 ```
+
+### *Screenshots :*
+
+<img src="images/assistant.png" height="460" width="680"> 
