@@ -30,7 +30,7 @@ if __name__ == '__main__':
         print("****** This System Not Supported ******")
         sys.exit("Closing Tools Opener")
 
-    print("\n\n\t\t Menu")
+    print("\n\t\t Menu")
     print("\n** Choose Any One Of The Following **\n")
     print()
     if sys_type == "Windows":
@@ -47,9 +47,7 @@ if __name__ == '__main__':
     
     print("\n")
     print("To exit app type exit or quit or close\n")
-    print()
     print("To clear the console type clear or cls\n")
-    print()
     print("To exit the opened tool press Ctrl + C\n")
 
     engine = pyttsx3.init()
