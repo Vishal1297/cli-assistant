@@ -69,8 +69,7 @@ if __name__ == '__main__':
         # Printing User Query
         print("\nYour Query :: ", query)
 
-        if "don't" in query or "do not" in query or "not" in query or "never" in query or "not do" in query \
-                or "must not" in query or "nope" in query:
+        if "don't" in query or "do not" in query or "never" in query or "not do" in query or "must not" in query or "nope" in query:
             continue
         if "clear" in query or "cls" in query:
             if sys_type == "Windows":
