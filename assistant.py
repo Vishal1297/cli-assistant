@@ -135,7 +135,7 @@ if __name__ == '__main__':
             else:
                 print("\n**** This Feature Is Not Supported ****\n")
                 speak("This Feature Is Not Supported")
-        elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("todo" in query
+        elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("todo" in query or "to-do" in query
         or "to do" in query or "gnome todo" in query):
             speak("Opening To Do")
             if sys_type == "Linux":
