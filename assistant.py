@@ -15,53 +15,67 @@ if __name__ == '__main__':
     # Check OS Type
     sys_type = platform.system()
 
-    print()
-    print("*" * 39)
-    print("******* Welcome To Tools Opener *******")
-    print("*" * 39)
-    print()
-    print("****** Developed By Vishal Yadav ******")
-    print()
-    print("**** For Windows And Linux OS Only ****")
-    print()
-
-    # Validate For Windows And Linux Only
-    if sys_type != "Linux" and sys_type != "Windows":
-        print("****** This System Not Supported ******")
-        sys.exit("Closing Tools Opener")
-
-    print("\n\t\t Menu")
-    print("\n** Choose Any One Of The Following **\n")
-    print()
-    if sys_type == "Windows":
-        print("Chrome Browser || Firefox Browser\n")
-        print("Calculator || Visual Studio Code\n")
-        print("Gimp || Notepad || Calender || Discord\n")
-        print("VLC Media Player || Windows Media Player\n")
-        
-    elif sys_type == "Linux":
-        print("Chrome Browser || Firefox Browser\n")
-        print("Gimp || Blender || Gedit || Calendar\n")
-        print("Discord || Chess || To-Do || Calculator\n")
-        print("Visual Studio Code || VLC Media Player\n")
-    
-    print("\n")
-    print("To exit app type exit or quit or close\n")
-    print("To clear the console type clear or cls\n")
-    print("To exit the opened tool press Ctrl + C\n")
-
+    # init pyttsx3
     engine = pyttsx3.init()
     volume = engine.getProperty('volume')
     engine.setProperty('volume',1.0)
     engine.setProperty('rate', engine.getProperty('rate') + 50)
-    
+
+    print()
+    print("-" * 39)
+    print("\n******* Welcome To My Assistant *******\n")
+    print("-" * 39)
+    print("****** Developed By Vishal Yadav ******")
+    print("**** For Windows And Linux OS Only ****")
+    print("-" * 39)
+
     # Welcome Message
-    speak("Welcome To Tools Opener")
+    speak("Welcome")
+    
+    # Validate For Windows And Linux Only
+    if sys_type != "Linux" and sys_type != "Windows":
+        print("****** This System Not Supported ******")
+        sys.exit("Closing Assistant")
+        print("-" * 39)
+
+    print("\t\t[ Menu ]")
+    print("-" * 39)
+    print("*** Choose Any One Of The Following ***")
+    print("-" * 39)
+    print()
+    speak("I can do the following")
+
+    if sys_type == "Windows":
+        print("Chrome Browser || Firefox Browser")
+        print()
+        print("Calculator || Visual Studio Code")
+        print()
+        print("Gimp || Notepad || Calender || Discord")
+        print()
+        print("VLC Media Player || Windows Media Player")
+        
+    elif sys_type == "Linux":
+        print("Chrome Browser || Firefox Browser")
+        print()
+        print("Gimp || Blender || Gedit || Calendar")
+        print()
+        print("Discord || Chess || To-Do || Calculator")
+        print()
+        print("Visual Studio Code || VLC Media Player")
+    print()
+    print()
+    print("To exit app type exit or quit or close")
+    print("-" * 39)
+    print("To clear the console type clear or cls")
+    print("-" * 39)
+    print("To exit the opened tool press Ctrl + C")
+    print("-" * 39)
 
     while True:
 
         # Ask For Query
         speak("What can i do for you")
+        print()
 
         # Taking Query From User
         query = input("\nWhat can i do for you ? ").strip().lower()
@@ -108,7 +122,7 @@ if __name__ == '__main__':
                 if os.system("start wmplayer") != 0:
                     speak("Windows Media Player Not Found")
             else:
-                print("\n**** This Feature Is Not Supported ****\n")
+                print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("calculator" in query):
             speak("Opening Calculator")
@@ -133,7 +147,7 @@ if __name__ == '__main__':
                 if os.system("gnome-chess") != 0:
                     speak("Chess Game Not Found")
             else:
-                print("\n**** This Feature Is Not Supported ****\n")
+                print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("todo" in query or "to-do" in query
         or "to do" in query or "gnome todo" in query):
@@ -142,7 +156,7 @@ if __name__ == '__main__':
                 if os.system("gnome-todo") != 0:
                     speak("Todo Not Found")
             else:
-                print("\n**** This Feature Is Not Supported ****\n")
+                print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("vlc" in query
         or "video" in query or "audio" in query or "media" in query or "player" in query):
@@ -185,15 +199,16 @@ if __name__ == '__main__':
                 if os.system("notepad") != 0:
                     speak("Notepad Not Found")
             else:
-                print("\n**** This Feature Is Not Supported ****\n")
+                print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
         elif "exit" in query or "quit" in query or "close" in query or "terminate" in query:
             print("\n")
-            print("*" * 39)
-            print("**** Thanks For Using Tools Opener ****")
-            print("*" * 39)
-            speak("Thanks For Using Tools Opener")
+            print("-" * 39)
+            print("**** Thanks For Using My Assistant ****")
+            print("-" * 39)
+            print()
+            speak("Thanks For Using My Assistant")
             break
         else:
-            print("\n**** This Feature Is Not Supported ****\n")
+            print("\n**** This Feature Is Not Supported ****")
             speak("This Feature Is Not Supported")
