@@ -47,4 +47,4 @@ A Python CLI Assistant For Opening Windows And Linux Applications.
 
 ### *Screenshots :*
 
-<img src="images/assistant.png" height="460" width="680"> 
+<img src="images/assistant2.png" height="500" width="700"> 
