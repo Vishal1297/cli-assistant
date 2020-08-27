@@ -201,7 +201,7 @@ if __name__ == '__main__':
             else:
                 print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
-        elif "exit" in query or "quit" in query or "close" in query or "terminate" in query:
+        elif "exit" == query or "quit" == query or "close" == query or "terminate" == query:
             print("\n")
             print("-" * 39)
             print("**** Thanks For Using My Assistant ****")
