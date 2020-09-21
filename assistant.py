@@ -1,4 +1,4 @@
-import os
+import subprocess as sp
 import platform
 import sys
 
@@ -25,7 +25,6 @@ if __name__ == '__main__':
     print("-" * 39)
     print("\n******* Welcome To My Assistant *******\n")
     print("-" * 39)
-    print("****** Developed By Vishal Yadav ******")
     print("**** For Windows And Linux OS Only ****")
     print("-" * 39)
 
@@ -80,123 +79,185 @@ if __name__ == '__main__':
         # Taking Query From User
         query = input("\nWhat can i do for you ? ").strip().lower()
 
+        spout = ()
+
         # Printing User Query
-        print("\nYour Query :: ", query)
+        print("\nYour Query :: ", query, end="\n\n")
 
         if "don't" in query or "do not" in query or "never" in query or "not do" in query or "must not" in query or "nope" in query:
             continue
         if "clear" in query or "cls" in query:
             if sys_type == "Windows":
-                os.system("cls")
+                spout = sp.getstatusoutput("cls")
+                if spout[0] != 0:
+                    print(spout[1])
             elif sys_type == "Linux":
-                os.system("clear")
+                spout = sp.getstatusoutput("clear")
+                if spout[0] != 0:
+                    print(spout[1])
+        elif "ip" in query or "ip address" in query or "address" in query:
+            if sys_type == "Windows":
+                spout = sp.getstatusoutput("ipconfig")
+                if spout[0] == 0:
+                    print(spout[1])
+            elif sys_type == "Linux":
+                spout = sp.getstatusoutput("ifconfig")
+                if spout[0] == 0:
+                    print(spout[1])
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("chrome" in query
         or "browser" in query):
-            speak("Opening Chrome Browser")
             if sys_type == "Windows":
-                if os.system("start chrome") != 0:
+                spout = sp.getstatusoutput("start chrome")
+                if spout[0] == 0:
+                    speak("Chrome Closed")
+                else:
                     speak("Chrome Not Found")
             elif sys_type == "Linux":
-                if os.system("google-chrome") != 0:
+                spout = sp.getstatusoutput("google-chrome")
+                if spout[0] == 0:
+                    speak("Chrome Closed")
+                else:
                     speak("Chrome Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("firefox" in query
         or "browser" in query):
-            speak("Opening Firefox Browser")
             if sys_type == "Windows":
-                if os.system("start firefox") != 0:
+                spout = sp.getstatusoutput("start firefox")
+                if spout[0] == 0:
+                    speak("Firefox Closed")
+                else:
                     speak("Firefox Not Found")
             elif sys_type == "Linux":
-                if os.system("firefox") != 0:
+                spout = sp.getstatusoutput("firefox")
+                if spout[0] == 0:
+                    speak("Firefox Closed")
+                else:
                     speak("Firefox Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("discord" in query):
-            speak("Opening Discord")
             if sys_type == "Windows":
-                if os.system("start discord") != 0:
+                spout = sp.getstatusoutput("start discord")
+                if spout[0] == 0:
+                    speak("Discord Closed")
+                else:
                     speak("Discord Not Found")
             elif sys_type == "Linux":
-                if os.system("discord") != 0:
+                spout = sp.getstatusoutput("discord")
+                if spout[0] == 0:
+                    speak("Discord Closed")
+                else:
                     speak("Discord Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("windows media player" in query):
-            speak("Opening Windows Media Player")
             if sys_type == "Windows":
-                if os.system("start wmplayer") != 0:
+                spout = sp.getstatusoutput("start wmplayer")
+                if spout[0] == 0:
+                    speak("Windows Media Player Closed")
+                else:
                     speak("Windows Media Player Not Found")
             else:
                 print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("calculator" in query):
-            speak("Opening Calculator")
             if sys_type == "Windows":
-                if os.system("start calculator:") != 0:
+                spout = sp.getstatusoutput("start calculator:")
+                if spout[0] == 0:
+                    speak("Calculator Closed")
+                else:
                     speak("Calculator Not Found")
             elif sys_type == "Linux":
-                if os.system("gnome-calculator") != 0:
+                spout = sp.getstatusoutput("gnome-calculator")
+                if spout == 0:
+                    speak("Calculator Closed")
+                else:
                     speak("Calculator Not Found")
-        elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and "calendar" in query:
-            speak("Opening Calendar")
+        elif ("open" in query or "run" in query or "execute" in query or "launch" in query or "show") and ("calendar" in query
+        or "date" in query):
             if sys_type == "Windows":
-                if os.system("start calendar:") != 0:
+                spout = sp.getstatusoutput("start calendar:")
+                if spout[0] == 0:
+                    speak("Calendar Closed")
+                else:
                     speak("Calendar Not Found")
             elif sys_type == "Linux":
-                if os.system("gnome-calendar") != 0:
-                    speak("Calendar Not Found")
+                spout = sp.getstatusoutput("gnome-calendar")
+                if spout[0] != 0:
+                    print(sp.getoutput("cal"))
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("chess" in query
         or "gnome chess" in query):
-            speak("Opening Chess Game")
             if sys_type == "Linux":
-                if os.system("gnome-chess") != 0:
+                spout = sp.getstatusoutput("gnome-chess")
+                if spout[0] == 0:
+                    speak("Chess Game Closed")
+                else:
                     speak("Chess Game Not Found")
             else:
                 print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
-        elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("todo" in query or "to-do" in query
-        or "to do" in query or "gnome todo" in query):
-            speak("Opening To Do")
+        elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("todo" in query or "to-do" in query or "to do" in query or "gnome todo" in query):
             if sys_type == "Linux":
-                if os.system("gnome-todo") != 0:
-                    speak("Todo Not Found")
+                spout = sp.getstatusoutput("gnome-todo")
+                if spout[0] == 0:
+                    speak("To Do Closed")
+                else:
+                    speak("To Do Not Found")
             else:
                 print("\n**** This Feature Is Not Supported ****")
                 speak("This Feature Is Not Supported")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("vlc" in query
         or "video" in query or "audio" in query or "media" in query or "player" in query):
-            speak("Opening VLC Media Player")
             if sys_type == "Linux":
-                if os.system("vlc") != 0:
+                spout = sp.getstatusoutput("vlc")
+                if spout[0] == 0:
+                    speak("VLC Media Player Closed")
+                else:
                     speak("VLC Media Player Not Found")
             elif sys_type == "Windows":
-                if os.system("start vlc:") != 0:
+                spout = sp.getstatusoutput("start vlc:")
+                if spout[0] == 0:
+                    speak("VLC Media Player Closed")
+                else:
                     speak("VLC Media Player Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("gimp" in query
         or "image" in query or "photo" in query):
-            speak("Opening Gimp")
             if sys_type == "Windows":
-                if os.system("start gimp") != 0:
+                spout = sp.getstatusoutput("start gimp")
+                if spout[0] == 0:
+                    speak("Gimp Closed")
+                else:
                     speak("Gimp Not Found")
             elif sys_type == "Linux":
-                if os.system("gimp") != 0:
+                spout = sp.getstatusoutput("gimp")
+                if spout[0] == 0:
+                    speak("Gimp Closed")
+                else:
                     speak("Gimp Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("visual studio code"
-        in query or "code" in query or "visual code" in query or "editor" in query):
-            speak("Opening Visual Studio Code")
-            if os.system("code") != 0:
-                speak("Visual Studio Code Not Found")
-        elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("blender" in query or "video" in query):
-            speak("Opening Blender")
-            if os.system("blender") != 0:
+        in query or "code" in query or "visual code" in query):
+            spout = sp.getstatusoutput("code")
+            if spout[0] == 0:
+                speak("Visual Studio Closed")
+            else:
+                speak("Visual Studio Not Found")
+        elif ("open" in query or "run" in query or "execute" in query or "launch" in query) and ("blender" in query or "video" in query):
+            spout = sp.getstatusoutput("blender")
+            if spout[0] == 0:
+                speak("Blender Closed")
+            else:
                 speak("Blender Not Found")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("gedit" in query or "editor" in query):
-            speak("Opening Gedit")
             if sys_type == "Linux":
-                if os.system("gedit") != 0:
+                spout = sp.getstatusoutput("gedit")
+                if spout[0] == 0:
+                    speak("Gedit Closed")
+                else:
                     speak("Gedit Not Found")
-            else:
+            elif sys_type == "Windows":
                 print("\n**** This Feature Is Not Supported ****\n")
                 speak("This Feature Is Not Supported")
         elif ("open" in query or "run" in query or "execute" in query or "launch" in  query) and ("notepad" in query or "note pad" in query or "editor" in query):
-            speak("Opening Notepad")
             if sys_type == "Windows":
-                if os.system("notepad") != 0:
+                spout = sp.getstatusoutput("gedit")
+                if spout[0] == 0:
+                    speak("Notepad Closed")
+                else:
                     speak("Notepad Not Found")
             else:
                 print("\n**** This Feature Is Not Supported ****")
