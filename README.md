@@ -7,7 +7,19 @@ A Python CLI Assistant For Opening Windows And Linux Applications.
 [![GitHub issues](https://img.shields.io/github/issues/Vishal1297/cli-assistant?style=plastic)](https://github.com/Vishal1297/cli-assistant/issues)
 [![GitHub License](https://img.shields.io/github/license/Vishal1297/cli-assistant)](https://github.com/Vishal1297/cli-assistant/blob/master/LICENSE)
 
-### Supported Applications :
+**Python 3.x Modules Used :**
+
+- **[sys](https://docs.python.org/3/library/sys.html)**
+- **[pyttsx3](https://pyttsx3.readthedocs.io/en/latest/engine.html)**
+- **[platform](https://docs.python.org/3/library/platform.html)**
+- **[subprocess](https://docs.python.org/3/library/subprocess.html)**
+
+**Requirements :**
+
+- **python3.x**
+- **pip3**
+
+**Supported Applications :**
 
 **Windows :**
 
@@ -23,26 +35,12 @@ A Python CLI Assistant For Opening Windows And Linux Applications.
   Calculator, Calendar, Discord, Chess, To Do, Gimp, Blender.
 ```
 
-**Requirements :**
-
-- **python3.x**
-- **pip**
-
-**Python 3.x Modules Used :**
-
-- **[os](https://docs.python.org/3/library/os.html)**
-- **[sys](https://docs.python.org/3/library/sys.html)**
-- **[platform](https://docs.python.org/3/library/platform.html)**
-- **[pyttsx3](https://pyttsx3.readthedocs.io/en/latest/engine.html)**
-
 **To Run :**
 
 ```
-  python assistant.py
-  
-  or
-  
-  python3 assistant.py
+  # python assistant.py 
+          or 
+  # python3 assistant.py
 ```
 
 ### *Screenshots :*
